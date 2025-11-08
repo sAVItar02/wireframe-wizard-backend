@@ -20,6 +20,10 @@ const snippetSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: 'typescript'
+    },
+    thumbnail: {
+        type: String,
+        trim: true
     }
 }, {
     timestamps: true

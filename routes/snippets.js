@@ -22,7 +22,7 @@ router.get('/', protect, async (req, res) => {
 // @desc    Save a new code snippet
 // @access  Private
 router.post('/', protect, async (req, res) => {
-    const { title, code, language } = req.body;
+    const { title, code, language, thumbnail } = req.body;
 
     if (!title || !code) {
         return res.status(400).json({ message: 'Please provide a title and code' });
@@ -33,7 +33,8 @@ router.post('/', protect, async (req, res) => {
             user: req.user.id,
             title,
             code,
-            language
+            language,
+            thumbnail
         });
         res.status(201).json(snippet);
     } catch (error) {
