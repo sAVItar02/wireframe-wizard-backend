@@ -1,0 +1,5 @@
+
+{
+  "name": "React Snippet API",
+  "description": "A Node.js backend service using Express, MongoDB, and JWT for user authentication and management of React (TypeScript) code snippets."
+}
