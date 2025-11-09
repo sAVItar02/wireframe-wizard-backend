@@ -29,6 +29,9 @@ const snippetSchema = new mongoose.Schema({
     timestamps: true
 });
 
+// Optimize queries like: find({ user }).sort({ createdAt: -1 })
+snippetSchema.index({ user: 1, createdAt: -1 });
+
 const Snippet = mongoose.model('Snippet', snippetSchema);
 
 export default Snippet;

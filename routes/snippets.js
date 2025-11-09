@@ -11,7 +11,9 @@ const router = express.Router();
 // @access  Private
 router.get('/', protect, async (req, res) => {
     try {
-        const snippets = await Snippet.find({ user: req.user.id }).sort({ createdAt: -1 });
+        const snippets = await Snippet.find({ user: req.user.id })
+            .sort({ createdAt: -1 })
+            .lean();
         res.status(200).json(snippets);
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error: error.message });
